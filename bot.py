@@ -3,8 +3,8 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 # Получаем ключи из переменных окружения
-TELEGRAM_TOKEN = os.environ.get("8233639638:AAHvGfYmxMZhRHGIkMoBnSFUGUrcESLj370")  # Используем get для безопасности
-CHANNEL_USERNAME = os.environ.get("@annapushok_bot")   # например: @annapushok_recipes
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")  # Используем get для безопасности
+CHANNEL_USERNAME = os.environ.get("CHANNEL_USERNAME")   # например: @annapushok_recipes
 PDF_PATH = os.environ.get("PDF_PATH", "novogodnee_menyu_PDF.pdf")  # По умолчанию 'recipes.pdf'
 
 BTN_CHECK = "check_sub"
