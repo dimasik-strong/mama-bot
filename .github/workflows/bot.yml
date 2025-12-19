@@ -1,0 +1,22 @@
+name: Run Telegram Bot
+on:
+  workflow_dispatch: # Позволяет запускать вручную
+  push:             # Автозапуск при загрузке кода
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run the bot
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHANNEL_USERNAME: ${{ secrets.CHANNEL_USERNAME }}
+          PDF_PATH: 'recipes.pdf' # Или путь из секрета
+        run: python bot.py &
